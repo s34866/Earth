@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ประวัติส่วนตัว | ภัทรพล แม้นอินทร์</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a href="index.html" class="brand"><span class="rx mono">PF</span>ภัทรพล แม้นอินทร์</a>
+  <nav class="links" id="navLinks">
+    <a href="index.html">หน้าแรก</a>
+    <a href="intro.html">คำนำ</a>
+    <a href="profile.html">ประวัติ</a>
+    <a href="education.html">การศึกษา</a>
+    <a href="activities.html">กิจกรรม</a>
+    <a href="contact.html">ติดต่อ</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="เปิดเมนู"><span></span><span></span><span></span></button>
+</header>
+
+<section id="profile">
+  <div class="kicker"><span class="code mono">§ 03</span><div class="rule"></div><h2>ประวัติส่วนตัว</h2></div>
+  <div class="profile-grid">
+    <div>
+      <div class="profile-photo">
+        <img id="imgPersonal" alt="รูปโปรไฟล์" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph-fallback" style="display:none;">[ ไม่พบไฟล์รูป ]<br>personalProfile</div>
+      </div>
+
+      <div class="sub-block-title">HOBBY</div>
+      <div class="hobby-row">
+        <img id="imgFishing" alt="ภาพตกปลา" onerror="this.style.display='none';">
+        <div class="txt"><p>ชอบตกปลา ตกกุ้ง</p><div class="tag">RELAX PROTOCOL</div></div>
+      </div>
+
+      <div class="trait-row">
+        <div class="trait-item"><p>เล่นได้เกือบทุกประเภทกีฬา</p><div class="tag">SPORT</div></div>
+        <div class="trait-item"><p>เรียนรู้สิ่งใหม่ได้รวดเร็ว</p><div class="tag">SKILL</div></div>
+        <div class="trait-item"><p>มั่นใจในความสามารถด้านคณิตศาสตร์</p><div class="tag">MATH</div></div>
+      </div>
+    </div>
+
+    <table class="data-table">
+      <tr><td>ชื่อ-นามสกุล</td><td>ภัทรพล แม้นอินทร์</td></tr>
+      <tr><td>ชื่อเล่น</td><td>เอิท</td></tr>
+      <tr><td>วันเกิด</td><td>11 พฤศจิกายน 2551</td></tr>
+      <tr><td>สัญชาติ</td><td>ไทย</td></tr>
+      <tr><td>เชื้อชาติ</td><td>ไทย</td></tr>
+      <tr><td>ศาสนา</td><td>พุทธ</td></tr>
+      <tr><td>กรุ๊ปเลือด</td><td>O</td></tr>
+      <tr><td>สถานศึกษา</td><td>โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</td></tr>
+      <tr><td>คณะที่สนใจ</td><td>เภสัชศาสตร์ สาขาบริบาลเภสัชกรรม</td></tr>
+    </table>
+  </div>
+
+  <div class="goal-strip-full">
+    <img id="imgGoal" alt="โลโก้มหาวิทยาลัยมหิดล" onerror="this.style.display='none';">
+    <div>
+      <span class="tag">GOAL</span>
+      <p>ศึกษาต่อคณะเภสัชศาสตร์ มหาวิทยาลัยมหิดล</p>
+    </div>
+  </div>
+</section>
+
+<footer>ภัทรพล แม้นอินทร์ (เอิท) — พอร์ตฟอลิโอส่วนตัว</footer>
+
+<script src="common.js"></script>
+<script>
+  applyImage('imgPersonal','personalProfile');
+  applyImage('imgFishing','hobbyFishing');
+  applyImage('imgGoal','goalLogo');
+</script>
+
+</body>
+</html>
