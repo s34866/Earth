@@ -6,69 +6,70 @@
 <title>ภัทรพล แม้นอินทร์ | Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#080B12;
-    --panel:#0F1524;
-    --panel-2:#141C30;
-    --line:#232D45;
-    --line-soft:rgba(124,242,208,0.14);
-    --blue:#4C7EFF;
-    --blue-dim:#2C4FA8;
-    --mint:#7CF2D0;
-    --text:#E7ECF7;
-    --text-mute:#8892A8;
-    --text-dim:#5B6480;
+    --bg:#F6F7F5;
+    --panel:#FFFFFF;
+    --ink:#0E1512;
+    --ink-soft:#4A554F;
+    --ink-dim:#8A948D;
+    --line:#DCE1DC;
+    --line-strong:#B9C2BB;
+    --clin-blue:#0A5ADE;
+    --clin-blue-soft:#E5EEFF;
+    --vital:#12A883;
+    --vital-soft:#E1F5EE;
+    --warn:#E0592B;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--ink);
-    color:var(--text);
+    background:var(--bg);
+    color:var(--ink);
     font-family:'IBM Plex Sans Thai','IBM Plex Sans',sans-serif;
     font-weight:300;
-    line-height:1.75;
+    line-height:1.7;
     overflow-x:hidden;
   }
-  .bg-grid{
-    position:fixed;inset:0;z-index:0;pointer-events:none;
-    background-image:
-      linear-gradient(var(--line-soft) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
-    background-size:64px 64px;
-    -webkit-mask-image:radial-gradient(ellipse at 20% 10%, black 0%, transparent 65%);
-    mask-image:radial-gradient(ellipse at 20% 10%, black 0%, transparent 65%);
-    opacity:0.5;
-  }
-  h1,h2,h3,.mono,.tag,.badge{font-family:'Chakra Petch',sans-serif;}
+  h1,h2,h3,.disp{font-family:'Space Grotesk',sans-serif;}
   .mono{font-family:'JetBrains Mono',monospace;}
 
-  /* ---- top navbar ---- */
+  /* faint blueprint grid, confined to hero only for restraint */
+  .grid-field{
+    position:absolute;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(10,90,222,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10,90,222,0.06) 1px, transparent 1px);
+    background-size:56px 56px;
+  }
+
   header.topnav{
     position:fixed;top:0;left:0;right:0;z-index:100;
     display:flex;align-items:center;justify-content:space-between;
-    padding:0 6vw;height:74px;
-    background:rgba(8,11,18,0.72);backdrop-filter:blur(10px);
+    padding:0 6vw;height:76px;
+    background:rgba(246,247,245,0.86);backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
-    transition:background .3s;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:16px;letter-spacing:0.02em;color:var(--text);text-decoration:none;}
-  .brand .mark{width:34px;height:34px;border:1px solid var(--mint);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--mint);clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);}
-  nav.links{display:flex;gap:6px;align-items:center;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:var(--ink);text-decoration:none;}
+  .brand .rx{
+    width:30px;height:30px;border-radius:50%;background:var(--clin-blue);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-family:'JetBrains Mono',monospace;
+  }
+  nav.links{display:flex;gap:2px;align-items:center;}
   nav.links a{
-    position:relative;font-size:13.5px;color:var(--text-mute);text-decoration:none;
-    padding:9px 16px;letter-spacing:0.01em;transition:color .2s;
+    position:relative;font-size:13.5px;color:var(--ink-soft);text-decoration:none;
+    padding:10px 16px;transition:color .2s;
   }
-  nav.links a::after{content:"";position:absolute;left:16px;right:16px;bottom:5px;height:1px;background:var(--mint);transform:scaleX(0);transform-origin:left;transition:transform .25s;}
-  nav.links a:hover{color:var(--text);}
-  nav.links a.active{color:var(--mint);}
+  nav.links a::after{content:"";position:absolute;left:16px;right:16px;bottom:6px;height:2px;background:var(--clin-blue);transform:scaleX(0);transform-origin:left;transition:transform .25s;}
+  nav.links a:hover{color:var(--ink);}
+  nav.links a.active{color:var(--clin-blue);font-weight:500;}
   nav.links a.active::after{transform:scaleX(1);}
   .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
-  .nav-toggle span{width:22px;height:1.5px;background:var(--text);}
+  .nav-toggle span{width:22px;height:1.5px;background:var(--ink);}
   @media (max-width:820px){
     nav.links{
-      position:fixed;top:74px;right:0;left:0;background:var(--panel);
+      position:fixed;top:76px;right:0;left:0;background:var(--panel);
       flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line);
       max-height:0;overflow:hidden;transition:max-height .3s ease;gap:0;
     }
@@ -80,154 +81,130 @@
 
   section{
     position:relative;z-index:1;min-height:100vh;
-    padding:150px 10vw 90px;
+    padding:140px 9vw 90px;
     display:flex;flex-direction:column;justify-content:center;
     border-bottom:1px solid var(--line);
   }
 
-  .kicker{
-    display:flex;align-items:baseline;gap:14px;margin-bottom:34px;
-  }
-  .kicker .idx{font-size:14px;color:var(--mint);letter-spacing:0.08em;}
-  .kicker .rule{flex:0 0 40px;height:1px;background:var(--line);}
-  .kicker h2{font-size:clamp(22px,2.6vw,32px);font-weight:500;color:var(--text);letter-spacing:0.01em;}
+  .kicker{display:flex;align-items:baseline;gap:16px;margin-bottom:40px;}
+  .kicker .code{font-size:12.5px;color:var(--clin-blue);font-family:'JetBrains Mono',monospace;}
+  .kicker .rule{flex:0 0 36px;height:1px;background:var(--line-strong);}
+  .kicker h2{font-size:clamp(22px,2.4vw,30px);font-weight:600;color:var(--ink);}
 
   /* ---- 01 HOME ---- */
-  #home{padding-top:130px;}
-  .home-wrap{display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:center;max-width:1140px;}
-  .id-frame{
-    position:relative;width:300px;height:360px;
-    clip-path:polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px);
-    background:linear-gradient(160deg,var(--panel-2),var(--panel));
-    border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;overflow:hidden;
-  }
-  .id-frame img{width:100%;height:100%;object-fit:cover;position:relative;z-index:2;}
-  .id-frame .ph-icon{position:absolute;z-index:1;color:var(--text-dim);font-size:13px;text-align:center;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;}
-  .id-frame .scan{
-    position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--mint),transparent);
-    animation:scan 3.2s ease-in-out infinite;z-index:3;
-  }
-  @keyframes scan{0%{top:0;opacity:0;}10%{opacity:1;}50%{top:100%;opacity:1;}60%{opacity:0;}100%{top:100%;opacity:0;}}
+  #home{padding-top:120px;overflow:hidden;}
+  .home-wrap{position:relative;display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;max-width:1180px;}
+  .home-copy .eyebrow{font-size:13px;color:var(--clin-blue);letter-spacing:0.04em;margin-bottom:18px;font-family:'JetBrains Mono',monospace;}
+  .home-copy h1{font-size:clamp(38px,5.2vw,60px);font-weight:600;line-height:1.14;color:var(--ink);}
+  .home-copy .nick{color:var(--clin-blue);}
+  .home-copy .role{margin-top:20px;font-size:17px;color:var(--ink-soft);font-weight:300;max-width:480px;}
+  .stat-row{display:flex;gap:0;margin-top:40px;border-top:1px solid var(--line);}
+  .stat{flex:1;padding:16px 18px 0 0;border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat .n{font-size:11.5px;color:var(--ink-dim);font-family:'JetBrains Mono',monospace;}
+  .stat .v{font-size:15px;color:var(--ink);margin-top:4px;font-weight:500;}
 
-  .home-copy .eyebrow{font-size:13px;color:var(--mint);letter-spacing:0.12em;margin-bottom:16px;}
-  .home-copy h1{font-size:clamp(38px,5.5vw,64px);font-weight:600;line-height:1.15;color:var(--text);}
-  .home-copy .nick{color:var(--mint);}
-  .home-copy .role{margin-top:18px;font-size:17px;color:var(--text-mute);font-weight:300;max-width:520px;}
-  .stat-row{display:flex;gap:32px;margin-top:38px;flex-wrap:wrap;}
-  .stat{border-left:1px solid var(--line);padding-left:14px;}
-  .stat .n{font-size:13px;color:var(--text-dim);}
-  .stat .v{font-size:15px;color:var(--text);margin-top:2px;}
-  .scroll-cue{margin-top:56px;display:flex;align-items:center;gap:12px;color:var(--text-dim);font-size:12px;letter-spacing:0.08em;}
-  .scroll-cue .line{width:1px;height:34px;background:var(--text-dim);position:relative;overflow:hidden;}
-  .scroll-cue .line::after{content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--mint);animation:drip 2s linear infinite;}
-  @keyframes drip{0%{top:-100%;}100%{top:100%;}}
+  .hero-photo{position:relative;width:100%;aspect-ratio:3/4;}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:6px;}
+  .hero-photo .vital-tag{
+    position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.92);backdrop-filter:blur(4px);
+    padding:8px 12px;border-radius:4px;font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--vital);
+    display:flex;align-items:center;gap:6px;
+  }
+  .hero-photo .vital-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--vital);animation:pulse 1.8s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+  .ph-fallback{
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    background:var(--clin-blue-soft);color:var(--ink-dim);font-size:12px;font-family:'JetBrains Mono',monospace;
+    text-align:center;border-radius:6px;
+  }
+
+  .scroll-cue{margin-top:56px;display:flex;align-items:center;gap:12px;color:var(--ink-dim);font-size:11.5px;font-family:'JetBrains Mono',monospace;}
+  .scroll-cue .line{width:32px;height:1px;background:var(--line-strong);}
 
   /* ---- 02 INTRO ---- */
-  #intro{align-items:center;}
-  .intro-wrap{max-width:760px;}
-  .intro-wrap p{font-size:clamp(17px,2vw,21px);color:var(--text);font-weight:300;line-height:1.9;}
-  .intro-wrap p .hl{color:var(--mint);}
+  #intro{align-items:center;background:var(--panel);}
+  .intro-wrap{max-width:740px;}
+  .intro-wrap p{font-size:clamp(17px,1.9vw,20px);color:var(--ink);font-weight:300;line-height:1.9;}
+  .intro-wrap p .hl{color:var(--clin-blue);font-weight:500;}
 
   /* ---- 03 PROFILE ---- */
-  .profile-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:36px;max-width:1180px;align-items:start;}
+  .profile-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:48px;max-width:1180px;align-items:start;}
+  .profile-photo{width:100%;aspect-ratio:4/5;margin-bottom:22px;}
+  .profile-photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:6px;}
+
   .data-table{width:100%;border-collapse:collapse;}
   .data-table tr{border-bottom:1px solid var(--line);}
   .data-table tr:last-child{border-bottom:none;}
-  .data-table td{padding:13px 6px;font-size:14.5px;}
-  .data-table td:first-child{color:var(--text-mute);width:38%;font-size:13px;}
-  .data-table td:last-child{color:var(--text);}
+  .data-table td{padding:14px 6px;font-size:14.5px;}
+  .data-table td:first-child{color:var(--ink-dim);width:36%;font-size:12.5px;font-family:'JetBrains Mono',monospace;}
+  .data-table td:last-child{color:var(--ink);font-weight:400;}
 
-  .profile-photo-panel{
-    position:relative;width:100%;max-width:260px;height:310px;margin-bottom:22px;
-    background:linear-gradient(160deg,var(--panel-2),var(--panel));border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;overflow:hidden;
-  }
-  .profile-photo-panel img{width:100%;height:100%;object-fit:cover;position:relative;z-index:2;}
-  .profile-photo-panel .ph-icon{position:absolute;z-index:1;color:var(--text-dim);font-size:12px;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;text-align:center;}
-  .profile-photo-panel .tag-corner{position:absolute;top:10px;left:10px;font-size:10px;color:var(--mint);letter-spacing:0.08em;z-index:3;}
+  .sub-block-title{font-size:12px;color:var(--ink-dim);font-family:'JetBrains Mono',monospace;margin:34px 0 14px;}
+  .hobby-row{display:flex;gap:16px;align-items:center;margin-bottom:22px;}
+  .hobby-row img{width:120px;height:90px;object-fit:cover;border-radius:5px;flex-shrink:0;}
+  .hobby-row .txt p{font-size:14.5px;color:var(--ink);}
+  .hobby-row .txt .tag{font-size:11px;color:var(--vital);font-family:'JetBrains Mono',monospace;margin-top:3px;}
 
-  /* ---- hobby photo card (fishing only) ---- */
-  .hobby-card{background:var(--panel-2);border:1px solid var(--line);overflow:hidden;margin-bottom:14px;}
-  .hobby-card .thumb{width:100%;height:200px;background:var(--ink);overflow:hidden;}
-  .hobby-card .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
-  .hobby-card .thumb span{display:flex;align-items:center;justify-content:center;height:100%;font-size:10px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
-  .hobby-card .cap{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;}
-  .hobby-card p{font-size:13.5px;color:var(--text);}
-  .hobby-card .tag{font-size:10px;color:var(--mint);letter-spacing:0.06em;}
+  .trait-row{display:flex;flex-direction:column;border-top:1px solid var(--line);}
+  .trait-item{display:flex;align-items:center;justify-content:space-between;padding:14px 2px;border-bottom:1px solid var(--line);}
+  .trait-item p{font-size:14px;color:var(--ink);}
+  .trait-item .tag{font-size:10.5px;color:var(--clin-blue);font-family:'JetBrains Mono',monospace;}
 
-  /* ---- traits row (sport / skill / math, text only) ---- */
-  .trait-row{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-bottom:14px;}
-  .trait-item{display:flex;align-items:center;justify-content:space-between;padding:14px 4px;border-bottom:1px solid var(--line);}
-  .trait-item p{font-size:13.5px;color:var(--text);}
-  .trait-item .tag{font-size:10px;color:var(--mint);letter-spacing:0.06em;}
-
-  /* ---- goal strip, full viewport width ---- */
   .goal-strip-full{
     width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;
-    margin-top:44px;background:var(--panel-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    padding:36px 8vw;display:flex;align-items:center;gap:28px;flex-wrap:wrap;
+    margin-top:48px;background:var(--vital-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:36px 9vw;display:flex;align-items:center;gap:26px;flex-wrap:wrap;
   }
-  .goal-strip-full .glogo{width:110px;height:110px;background:var(--ink);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}
-  .goal-strip-full .glogo img{width:100%;height:100%;object-fit:contain;padding:12px;}
-  .goal-strip-full .glogo span{font-size:9px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;text-align:center;}
-  .goal-strip-full .tag{font-size:11px;color:var(--mint);letter-spacing:0.08em;display:block;margin-bottom:6px;}
-  .goal-strip-full p{font-size:17px;color:var(--text);}
-  @media (max-width:820px){
-    .goal-strip-full{flex-direction:column;text-align:center;padding:32px 6vw;}
-  }
+  .goal-strip-full img{width:200px;height:200px;object-fit:contain;flex-shrink:0;}
+  .goal-strip-full .tag{font-size:11px;color:var(--vital);letter-spacing:0.04em;display:block;margin-bottom:6px;font-family:'JetBrains Mono',monospace;}
+  .goal-strip-full p{font-size:17px;color:var(--ink);font-weight:500;}
+  @media (max-width:820px){ .goal-strip-full{flex-direction:column;text-align:center;padding:32px 6vw;} }
 
   /* ---- 04 EDUCATION ---- */
-  .timeline{max-width:900px;display:flex;flex-direction:column;}
-  .tl-item{display:grid;grid-template-columns:56px 92px 1fr;gap:24px;padding:30px 0;border-bottom:1px solid var(--line);align-items:center;}
+  #education{background:var(--panel);}
+  .timeline{max-width:880px;display:flex;flex-direction:column;}
+  .tl-item{display:grid;grid-template-columns:120px 1fr;gap:22px;padding:28px 0;border-bottom:1px solid var(--line);align-items:center;}
   .tl-item:last-child{border-bottom:none;}
-  .tl-item .yr{font-size:13px;color:var(--text-dim);}
-  .tl-logo{width:92px;height:92px;border:1px solid var(--line);background:var(--panel-2);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
-  .tl-logo img{width:100%;height:100%;object-fit:contain;}
-  .tl-logo span{font-size:9px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
-  .tl-item h3{font-size:18px;font-weight:500;color:var(--text);}
-  .tl-item .lvl{font-size:12.5px;color:var(--mint);margin-top:5px;letter-spacing:0.04em;}
+  .tl-logo{width:120px;height:120px;object-fit:contain;border-radius:4px;}
+  .tl-item h3{font-size:17.5px;font-weight:500;color:var(--ink);}
+  .tl-item .lvl{font-size:12.5px;color:var(--clin-blue);margin-top:5px;font-family:'JetBrains Mono',monospace;}
 
   /* ---- 05 ACTIVITIES ---- */
-  .act-list{max-width:960px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-  .act-item{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);overflow:hidden;}
-  .act-cert{width:100%;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;position:relative;}
+  .act-list{max-width:980px;display:grid;grid-template-columns:1fr 1fr;gap:28px 24px;}
+  .act-item{display:flex;flex-direction:column;}
+  .act-cert{width:100%;aspect-ratio:4/3;overflow:hidden;cursor:pointer;border-radius:6px;margin-bottom:12px;}
   .act-cert img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
   .act-cert:hover img{transform:scale(1.03);}
-  .act-cert span{font-size:10px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;text-align:center;padding:0 10px;}
-  .act-cert .zoom-hint{position:absolute;bottom:8px;right:10px;font-size:10px;color:var(--mint);opacity:0;transition:opacity .2s;font-family:'JetBrains Mono',monospace;background:rgba(4,6,10,0.55);padding:2px 6px;}
-  .act-cert:hover .zoom-hint{opacity:1;}
-  .act-body{padding:18px 20px;}
-  .act-body p{font-size:14px;color:var(--text);}
-  .act-body .n{font-size:12px;color:var(--text-dim);margin-right:10px;}
+  .act-body p{font-size:14px;color:var(--ink);}
+  .act-body .n{font-size:11.5px;color:var(--clin-blue);margin-right:8px;font-family:'JetBrains Mono',monospace;}
 
-  .lightbox{position:fixed;inset:0;background:rgba(4,6,10,0.92);z-index:200;display:none;align-items:center;justify-content:center;padding:40px;}
+  .lightbox{position:fixed;inset:0;background:rgba(10,15,12,0.92);z-index:200;display:none;align-items:center;justify-content:center;padding:40px;}
   .lightbox.open{display:flex;}
-  .lightbox img{max-width:90vw;max-height:85vh;border:1px solid var(--line);}
-  .lightbox .close{position:absolute;top:24px;right:32px;color:var(--text);font-size:28px;cursor:pointer;font-family:'JetBrains Mono',monospace;line-height:1;}
+  .lightbox img{max-width:90vw;max-height:85vh;border-radius:4px;}
+  .lightbox .close{position:absolute;top:24px;right:32px;color:#fff;font-size:28px;cursor:pointer;font-family:'JetBrains Mono',monospace;line-height:1;}
 
   /* ---- 06 CONTACT ---- */
-  #contact{align-items:flex-start;}
-  .contact-wrap{max-width:640px;width:100%;}
-  .contact-list{display:flex;flex-direction:column;}
+  #contact{align-items:flex-start;background:var(--panel);}
+  .contact-wrap{max-width:620px;width:100%;}
   .contact-row{display:flex;justify-content:space-between;align-items:center;padding:22px 4px;border-bottom:1px solid var(--line);}
   .contact-row:last-child{border-bottom:none;}
-  .contact-row .label{font-size:12.5px;color:var(--text-dim);letter-spacing:0.06em;}
-  .contact-row .val{font-size:16px;color:var(--text);}
-  .contact-row a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--line);}
-  .contact-row a:hover{color:var(--mint);border-color:var(--mint);}
-  footer{position:relative;z-index:1;padding:28px 10vw;font-size:12px;color:var(--text-dim);border-top:1px solid var(--line);}
+  .contact-row .label{font-size:12px;color:var(--ink-dim);font-family:'JetBrains Mono',monospace;}
+  .contact-row .val{font-size:16px;color:var(--ink);}
+  .contact-row a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);}
+  .contact-row a:hover{color:var(--clin-blue);border-color:var(--clin-blue);}
+  footer{position:relative;z-index:1;padding:26px 9vw;font-size:12px;color:var(--ink-dim);border-top:1px solid var(--line);background:var(--panel);}
 
   @media (max-width:820px){
-    section{padding:120px 6vw 70px;}
-    #home{padding-top:110px;}
-    .home-wrap{grid-template-columns:1fr;gap:36px;text-align:left;}
-    .id-frame{width:220px;height:270px;}
+    section{padding:110px 6vw 70px;}
+    #home{padding-top:104px;}
+    .home-wrap{grid-template-columns:1fr;gap:32px;}
+    .hero-photo{max-width:280px;}
     .profile-grid{grid-template-columns:1fr;}
-    .tl-item{grid-template-columns:40px 68px 1fr;gap:16px;}
-    .tl-logo{width:68px;height:68px;}
     .act-list{grid-template-columns:1fr;}
     .contact-row{flex-direction:column;align-items:flex-start;gap:6px;}
+    .tl-item{grid-template-columns:64px 1fr;gap:16px;}
+    .tl-logo{width:100px;height:100px;}
   }
 </style>
 </head>
@@ -235,33 +212,22 @@
 
 <script>
 window.SITE_IMAGES = {
-  heroProfile:      "Earthpic.jpg",   // รูปโปรไฟล์หน้าแรก (Home)
-  personalProfile:  "Earthpic2.jpg",   // รูปโปรไฟล์ในส่วนประวัติส่วนตัว
-  hobbyFishing:     "fishing.jpg",   // รูปตกปลา (งานอดิเรก)
-  goalLogo:         "mahidol.jpg",   // โลโก้มหาวิทยาลัยมหิดล
-  eduLogo1:         "bt.jpg",   // โลโก้ ร.ร.บุญประทีปวิทยาคาร (ประถม)
-  eduLogo2:         "bbu.jpg",   // โลโก้ ร.ร.บ้านบึงฯ (ม.ต้น)
-  eduLogo3:         "bbu.jpg",   // โลโก้ ร.ร.บ้านบึงฯ (ม.ปลาย)
-  cert1:            "dodehor.png",   // รูปใบประกาศ กิจกรรมที่ 1 (โดดหอ 34 ฟุต)
-  cert2:            "sapa.png",   // รูปใบประกาศ กิจกรรมที่ 2 (สภานักเรียน)
-  cert3:            "tumma.png",   // รูปใบประกาศ กิจกรรมที่ 3 (ค่ายคุณธรรม)
-  cert4:            "prayoj.png"    // รูปใบประกาศ กิจกรรมที่ 4 (นักเรียนดีเด่น)
-};
-
-/* ปรับขนาดกรอบรูปได้ตรงนี้ (หน่วย px) */
-window.SITE_SIZES = {
-  heroProfile:     { w: 300, h: 360 },
-  personalProfile: { w: 260, h: 310 },
-  hobbyFishing:    { h: 200 },
-  eduLogo:         { w: 92,  h: 92  },
-  cert:            { h: 220 }
+  heroProfile:      "Earthpic.jpg",
+  personalProfile:  "Earthpic2.jpg",
+  hobbyFishing:     "fishing.jpg",
+  goalLogo:         "mahidol.jpg",
+  eduLogo1:         "bt.jpg",
+  eduLogo2:         "bbu.jpg",
+  eduLogo3:         "bbu.jpg",
+  cert1:            "dodehor.png",
+  cert2:            "sapa.png",
+  cert3:            "tumma.png",
+  cert4:            "prayoj.png"
 };
 </script>
 
-<div class="bg-grid"></div>
-
 <header class="topnav">
-  <a href="#home" class="brand"><span class="mark mono">PM</span>ภัทรพล แม้นอินทร์</a>
+  <a href="#home" class="brand"><span class="rx mono">PF</span>ภัทรพล แม้นอินทร์</a>
   <nav class="links" id="navLinks">
     <a href="#home">หน้าแรก</a>
     <a href="#intro">คำนำ</a>
@@ -274,36 +240,56 @@ window.SITE_SIZES = {
 </header>
 
 <section id="home">
+  <div class="grid-field"></div>
   <div class="home-wrap">
-    <div class="id-frame" id="frameHero">
-      <span class="ph-icon">[ PHOTO ]<br>heroProfile</span>
-      <img id="imgHero" alt="รูปโปรไฟล์ ภัทรพล แม้นอินทร์">
-      <div class="scan"></div>
-    </div>
     <div class="home-copy">
-      <div class="eyebrow mono">PROFILE // 2026</div>
+      <div class="eyebrow">PROFILE — 2026</div>
       <h1>ภัทรพล<br>แม้นอินทร์<span class="nick"> "เอิท"</span></h1>
       <p class="role">นักเรียนชั้นมัธยมศึกษาปีที่ 6 โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์" ผู้สนใจศึกษาต่อด้านเภสัชศาสตร์ สาขาบริบาลเภสัชกรรม</p>
       <div class="stat-row">
-        <div class="stat"><div class="n mono">TARGET</div><div class="v">มหาวิทยาลัยมหิดล</div></div>
-        <div class="stat"><div class="n mono">FIELD</div><div class="v">เภสัชศาสตร์ (บริบาล)</div></div>
-        <div class="stat"><div class="n mono">BLOOD</div><div class="v">O</div></div>
+        <div class="stat"><div class="n">TARGET</div><div class="v">มหาวิทยาลัยมหิดล</div></div>
+        <div class="stat"><div class="n">FIELD</div><div class="v">เภสัชศาสตร์ (บริบาล)</div></div>
+        <div class="stat"><div class="n">BLOOD TYPE</div><div class="v">O</div></div>
       </div>
       <div class="scroll-cue"><div class="line"></div>เลื่อนลงเพื่อดูเพิ่มเติม</div>
+    </div>
+    <div class="hero-photo">
+      <img id="imgHero" alt="รูปโปรไฟล์ ภัทรพล แม้นอินทร์" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="ph-fallback" style="display:none;">[ ไม่พบไฟล์รูป ]<br>heroProfile</div>
+      <div class="vital-tag"><span class="dot"></span>ACTIVE</div>
     </div>
   </div>
 </section>
 
 <section id="intro">
-  <div class="kicker"><span class="idx mono">02</span><div class="rule"></div><h2>คำนำ</h2></div>
+  <div class="kicker"><span class="code mono">§ 02</span><div class="rule"></div><h2>คำนำ</h2></div>
   <div class="intro-wrap">
     <p>ผมชื่อ <span class="hl">ภัทรพล แม้นอินทร์</span> หรือชื่อเล่นว่าเอิท เป็นคนที่เรียนรู้สิ่งใหม่ ๆ ได้ค่อนข้างเร็ว ชอบเล่นกีฬาแทบทุกประเภท และมีความมั่นใจในความสามารถด้านคณิตศาสตร์เป็นพิเศษ นอกเวลาเรียนผมมักใช้เวลาไปกับการตกปลาและตกกุ้ง ซึ่งสอนให้ผมมีความอดทนและใจเย็นมากขึ้น ปัจจุบันผมตั้งเป้าหมายจะศึกษาต่อในคณะเภสัชศาสตร์ สาขาบริบาลเภสัชกรรม ที่มหาวิทยาลัยมหิดล และตั้งใจพัฒนาตัวเองอย่างต่อเนื่องเพื่อไปให้ถึงเป้าหมายนั้น</p>
   </div>
 </section>
 
 <section id="profile">
-  <div class="kicker"><span class="idx mono">03</span><div class="rule"></div><h2>ประวัติส่วนตัว</h2></div>
+  <div class="kicker"><span class="code mono">§ 03</span><div class="rule"></div><h2>ประวัติส่วนตัว</h2></div>
   <div class="profile-grid">
+    <div>
+      <div class="profile-photo">
+        <img id="imgPersonal" alt="รูปโปรไฟล์" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph-fallback" style="display:none;">[ ไม่พบไฟล์รูป ]<br>personalProfile</div>
+      </div>
+
+      <div class="sub-block-title">HOBBY</div>
+      <div class="hobby-row">
+        <img id="imgFishing" alt="ภาพตกปลา" onerror="this.style.display='none';">
+        <div class="txt"><p>ชอบตกปลา ตกกุ้ง</p><div class="tag">RELAX PROTOCOL</div></div>
+      </div>
+
+      <div class="trait-row">
+        <div class="trait-item"><p>เล่นได้เกือบทุกประเภทกีฬา</p><div class="tag">SPORT</div></div>
+        <div class="trait-item"><p>เรียนรู้สิ่งใหม่ได้รวดเร็ว</p><div class="tag">SKILL</div></div>
+        <div class="trait-item"><p>มั่นใจในความสามารถด้านคณิตศาสตร์</p><div class="tag">MATH</div></div>
+      </div>
+    </div>
+
     <table class="data-table">
       <tr><td>ชื่อ-นามสกุล</td><td>ภัทรพล แม้นอินทร์</td></tr>
       <tr><td>ชื่อเล่น</td><td>เอิท</td></tr>
@@ -315,87 +301,63 @@ window.SITE_SIZES = {
       <tr><td>สถานศึกษา</td><td>โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</td></tr>
       <tr><td>คณะที่สนใจ</td><td>เภสัชศาสตร์ สาขาบริบาลเภสัชกรรม</td></tr>
     </table>
-
-    <div>
-      <div class="profile-photo-panel" id="framePersonal">
-        <span class="tag-corner mono">PROFILE</span>
-        <span class="ph-icon">[ PHOTO ]<br>personalProfile</span>
-        <img id="imgPersonal" alt="รูปโปรไฟล์">
-      </div>
-
-      <div class="hobby-card">
-        <div class="thumb" id="frameFishing"><span>[ IMAGE ]<br>hobbyFishing</span><img id="imgFishing" alt="ภาพตกปลา"></div>
-        <div class="cap"><p>ชอบตกปลา ตกกุ้ง</p><div class="tag mono">HOBBY</div></div>
-      </div>
-
-      <div class="trait-row">
-        <div class="trait-item"><p>เล่นได้เกือบทุกประเภทกีฬา</p><div class="tag mono">SPORT</div></div>
-        <div class="trait-item"><p>เรียนรู้สิ่งใหม่ได้รวดเร็ว</p><div class="tag mono">SKILL</div></div>
-        <div class="trait-item"><p>มั่นใจในความสามารถด้านคณิตศาสตร์</p><div class="tag mono">MATH</div></div>
-      </div>
-    </div>
   </div>
 
   <div class="goal-strip-full">
-    <div class="glogo" id="frameGoal"><span>[ LOGO ]</span><img id="imgGoal" alt="โลโก้มหาวิทยาลัยมหิดล"></div>
+    <img id="imgGoal" alt="โลโก้มหาวิทยาลัยมหิดล" onerror="this.style.display='none';">
     <div>
-      <span class="tag mono">GOAL</span>
+      <span class="tag">GOAL</span>
       <p>ศึกษาต่อคณะเภสัชศาสตร์ มหาวิทยาลัยมหิดล</p>
     </div>
   </div>
 </section>
 
 <section id="education">
-  <div class="kicker"><span class="idx mono">04</span><div class="rule"></div><h2>ประวัติการศึกษา</h2></div>
+  <div class="kicker"><span class="code mono">§ 04</span><div class="rule"></div><h2>ประวัติการศึกษา</h2></div>
   <div class="timeline">
     <div class="tl-item">
-      <div class="yr mono">01</div>
-      <div class="tl-logo" id="frameEdu1"><span>LOGO</span><img id="imgEdu1" alt="โลโก้โรงเรียนบุญประทีปวิทยาคาร"></div>
+      <img class="tl-logo" id="imgEdu1" alt="โลโก้โรงเรียนบุญประทีปวิทยาคาร" onerror="this.style.display='none';">
       <div><h3>โรงเรียนบุญประทีปวิทยาคาร</h3><div class="lvl">ระดับชั้นประถมศึกษา</div></div>
     </div>
     <div class="tl-item">
-      <div class="yr mono">02</div>
-      <div class="tl-logo" id="frameEdu2"><span>LOGO</span><img id="imgEdu2" alt="โลโก้โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์"></div>
+      <img class="tl-logo" id="imgEdu2" alt="โลโก้โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์" onerror="this.style.display='none';">
       <div><h3>โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</h3><div class="lvl">ระดับชั้นมัธยมศึกษาตอนต้น</div></div>
     </div>
     <div class="tl-item">
-      <div class="yr mono">03</div>
-      <div class="tl-logo" id="frameEdu3"><span>LOGO</span><img id="imgEdu3" alt="โลโก้โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์"></div>
+      <img class="tl-logo" id="imgEdu3" alt="โลโก้โรงเรียนบ้านบึงอุตสาหกรรมนุเคราะห์" onerror="this.style.display='none';">
       <div><h3>โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</h3><div class="lvl">ระดับชั้นมัธยมศึกษาตอนปลาย</div></div>
     </div>
   </div>
 </section>
 
 <section id="activities">
-  <div class="kicker"><span class="idx mono">05</span><div class="rule"></div><h2>กิจกรรม</h2></div>
+  <div class="kicker"><span class="code mono">§ 05</span><div class="rule"></div><h2>กิจกรรม</h2></div>
   <div class="act-list">
     <div class="act-item">
-      <div class="act-cert" id="frameCert1" onclick="openLB('imgCert1')"><span>[ ใบประกาศ ]<br>cert1</span><img id="imgCert1" alt="ใบประกาศกิจกรรมที่ 1"><span class="zoom-hint mono">คลิกเพื่อขยาย</span></div>
-      <div class="act-body"><p><span class="n mono">01</span>ผ่านการทดสอบกำลังใจ โดดหอสูง 34 ฟุต</p></div>
+      <div class="act-cert" onclick="openLB('imgCert1')"><img id="imgCert1" alt="ใบประกาศกิจกรรมที่ 1" onerror="this.parentElement.style.background='var(--clin-blue-soft)';this.style.display='none';"></div>
+      <div class="act-body"><p><span class="n">01</span>ผ่านการทดสอบกำลังใจ โดดหอสูง 34 ฟุต</p></div>
     </div>
     <div class="act-item">
-      <div class="act-cert" id="frameCert2" onclick="openLB('imgCert2')"><span>[ ใบประกาศ ]<br>cert2</span><img id="imgCert2" alt="ใบประกาศกิจกรรมที่ 2"><span class="zoom-hint mono">คลิกเพื่อขยาย</span></div>
-      <div class="act-body"><p><span class="n mono">02</span>ปฏิบัติหน้าที่คณะกรรมการสภานักเรียน ประจำปีการศึกษา 2567</p></div>
+      <div class="act-cert" onclick="openLB('imgCert2')"><img id="imgCert2" alt="ใบประกาศกิจกรรมที่ 2" onerror="this.parentElement.style.background='var(--clin-blue-soft)';this.style.display='none';"></div>
+      <div class="act-body"><p><span class="n">02</span>ปฏิบัติหน้าที่คณะกรรมการสภานักเรียน ประจำปีการศึกษา 2567</p></div>
     </div>
     <div class="act-item">
-      <div class="act-cert" id="frameCert3" onclick="openLB('imgCert3')"><span>[ ใบประกาศ ]<br>cert3</span><img id="imgCert3" alt="ใบประกาศกิจกรรมที่ 3"><span class="zoom-hint mono">คลิกเพื่อขยาย</span></div>
-      <div class="act-body"><p><span class="n mono">03</span>เข้าร่วมอบรมค่ายพัฒนาคุณธรรม จริยธรรมนักเรียน ประจำปีการศึกษา 2567</p></div>
+      <div class="act-cert" onclick="openLB('imgCert3')"><img id="imgCert3" alt="ใบประกาศกิจกรรมที่ 3" onerror="this.parentElement.style.background='var(--clin-blue-soft)';this.style.display='none';"></div>
+      <div class="act-body"><p><span class="n">03</span>เข้าร่วมอบรมค่ายพัฒนาคุณธรรม จริยธรรมนักเรียน ประจำปีการศึกษา 2567</p></div>
     </div>
     <div class="act-item">
-      <div class="act-cert" id="frameCert4" onclick="openLB('imgCert4')"><span>[ ใบประกาศ ]<br>cert4</span><img id="imgCert4" alt="ใบประกาศกิจกรรมที่ 4"><span class="zoom-hint mono">คลิกเพื่อขยาย</span></div>
-      <div class="act-body"><p><span class="n mono">04</span>นักเรียนดีเด่นด้านการบำเพ็ญประโยชน์ อุทิศตนเพื่อโรงเรียน ประจำปีการศึกษา 2567</p></div>
+      <div class="act-cert" onclick="openLB('imgCert4')"><img id="imgCert4" alt="ใบประกาศกิจกรรมที่ 4" onerror="this.parentElement.style.background='var(--clin-blue-soft)';this.style.display='none';"></div>
+      <div class="act-body"><p><span class="n">04</span>นักเรียนดีเด่นด้านการบำเพ็ญประโยชน์ อุทิศตนเพื่อโรงเรียน ประจำปีการศึกษา 2567</p></div>
     </div>
   </div>
 </section>
 
 <section id="contact">
-  <div class="kicker"><span class="idx mono">06</span><div class="rule"></div><h2>ข้อมูลการติดต่อ</h2></div>
+  <div class="kicker"><span class="code mono">§ 06</span><div class="rule"></div><h2>ข้อมูลการติดต่อ</h2></div>
   <div class="contact-wrap">
-    <div class="contact-list">
-      <div class="contact-row"><span class="label mono">EMAIL</span><span class="val"><a href="mailto:s34866@banbung.ac.th">s34866@banbung.ac.th</a></span></div>
-      <div class="contact-row"><span class="label mono">INSTAGRAM</span><span class="val"><a href="https://instagram.com/patt_ea557" target="_blank">@patt_ea557</a></span></div>
-      <div class="contact-row"><span class="label mono">FACEBOOK</span><span class="val"><a href="https://facebook.com" target="_blank">Pattaraphon Manin</a></span></div>
-    </div>
+    <div class="contact-row"><span class="label">EMAIL</span><span class="val"><a href="mailto:s34866@banbung.ac.th">s34866@banbung.ac.th</a></span></div>
+    <div class="contact-row"><span class="label">INSTAGRAM</span><span class="val"><a href="https://instagram.com/patt_ea557" target="_blank">@patt_ea557</a></span></div>
+    <div class="contact-row"><span class="label">FACEBOOK</span><span class="val"><a href="https://facebook.com" target="_blank">Pattaraphon Manin</a></span></div>
   </div>
 </section>
 
@@ -407,7 +369,6 @@ window.SITE_SIZES = {
 </div>
 
 <script>
-  /* ---- นำ path จาก SITE_IMAGES ไปใส่ในรูปจริง ---- */
   function applyImage(imgId, key){
     var img = document.getElementById(imgId);
     var src = window.SITE_IMAGES[key];
@@ -425,24 +386,6 @@ window.SITE_SIZES = {
   applyImage('imgCert3','cert3');
   applyImage('imgCert4','cert4');
 
-  /* ---- นำ SITE_SIZES ไปปรับขนาดกรอบรูป ---- */
-  var S = window.SITE_SIZES;
-  function px(v){ return v + 'px'; }
-  document.getElementById('frameHero').style.width = px(S.heroProfile.w);
-  document.getElementById('frameHero').style.height = px(S.heroProfile.h);
-  document.getElementById('framePersonal').style.maxWidth = px(S.personalProfile.w);
-  document.getElementById('framePersonal').style.height = px(S.personalProfile.h);
-  document.getElementById('frameFishing').style.height = px(S.hobbyFishing.h);
-  ['frameEdu1','frameEdu2','frameEdu3'].forEach(function(id){
-    var el = document.getElementById(id);
-    el.style.width = px(S.eduLogo.w);
-    el.style.height = px(S.eduLogo.h);
-  });
-  ['frameCert1','frameCert2','frameCert3','frameCert4'].forEach(function(id){
-    document.getElementById(id).style.height = px(S.cert.h);
-  });
-
-  /* ---- lightbox ---- */
   function openLB(imgId){
     var src = document.getElementById(imgId).getAttribute('src');
     if(!src) return;
@@ -455,7 +398,6 @@ window.SITE_SIZES = {
     }
   }
 
-  /* ---- navbar: mobile toggle + scroll spy ---- */
   var navToggle = document.getElementById('navToggle');
   var navLinks = document.getElementById('navLinks');
   navToggle.addEventListener('click', function(){ navLinks.classList.toggle('open'); });
