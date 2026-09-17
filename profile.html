@@ -26,23 +26,12 @@
 
 <section id="profile">
   <div class="kicker"><span class="code mono">§ 03</span><div class="rule"></div><h2>ประวัติส่วนตัว</h2></div>
+
   <div class="profile-grid">
-    <div>
+    <div class="gr-photo">
       <div class="profile-photo">
         <img id="imgPersonal" alt="รูปโปรไฟล์" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="ph-fallback" style="display:none;">[ ไม่พบไฟล์รูป ]<br>personalProfile</div>
-      </div>
-
-      <div class="sub-block-title">HOBBY</div>
-      <div class="hobby-row">
-        <img id="imgFishing" alt="ภาพตกปลา" onerror="this.style.display='none';">
-        <div class="txt"><p>ชอบตกปลา ตกกุ้ง</p><div class="tag">RELAX PROTOCOL</div></div>
-      </div>
-
-      <div class="trait-row">
-        <div class="trait-item"><p>เล่นได้เกือบทุกประเภทกีฬา</p><div class="tag">SPORT</div></div>
-        <div class="trait-item"><p>เรียนรู้สิ่งใหม่ได้รวดเร็ว</p><div class="tag">SKILL</div></div>
-        <div class="trait-item"><p>มั่นใจในความสามารถด้านคณิตศาสตร์</p><div class="tag">MATH</div></div>
       </div>
     </div>
 
@@ -57,6 +46,20 @@
       <tr><td>สถานศึกษา</td><td>โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</td></tr>
       <tr><td>คณะที่สนใจ</td><td>เภสัชศาสตร์ สาขาบริบาลเภสัชกรรม</td></tr>
     </table>
+
+    <div class="gr-hobby">
+      <div class="sub-block-title">HOBBY</div>
+      <div class="hobby-row">
+        <img id="imgFishing" alt="ภาพตกปลา" onerror="this.style.display='none';">
+        <div class="txt"><p>ชอบตกปลา <br>ตกกุ้ง</p><div class="tag">RELAX PROTOCOL</div></div>
+      </div>
+    </div>
+
+    <div class="trait-row">
+      <div class="trait-item"><p>เล่นได้เกือบทุกประเภทกีฬา</p><div class="tag">SPORT</div></div>
+      <div class="trait-item"><p>เรียนรู้สิ่งใหม่ได้รวดเร็ว</p><div class="tag">SKILL</div></div>
+      <div class="trait-item"><p>มั่นใจในความสามารถด้านคณิตศาสตร์</p><div class="tag">MATH</div></div>
+    </div>
   </div>
 
   <div class="goal-strip-full">
@@ -76,6 +79,7 @@
   applyImage('imgFishing','hobbyFishing');
   applyImage('imgGoal','goalLogo');
 </script>
+
 
 </body>
 </html>
